@@ -18,6 +18,7 @@ import StockDeleteComponent from '@/components/Stocks/StockDeleteComponent.vue';
 
 import InvoiceSaleComponent from '@/components/Invoices/InvoiceSaleComponent.vue';
 import InvoicePurchaseComponent from '@/components/Invoices/InvoicePurchaseComponent.vue';
+import InvoiceSaleReturnComponent from '@/components/Invoices/InvoiceSaleReturnComponent.vue';
 const routes = [
   {
     path: '/login',
@@ -85,6 +86,10 @@ const routes = [
       {
         path:'invoice-create/purchase',
         component:InvoicePurchaseComponent
+      },
+      {
+        path:'invoice-create/sale-return',
+        component:InvoiceSaleReturnComponent
       }
     ]
   }

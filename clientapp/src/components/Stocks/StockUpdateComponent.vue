@@ -93,7 +93,7 @@ export default {
             axios.post("http://localhost:5280/api/stock/stock-update", this.selectedStock)
                 .then(response => {
                     if(response.data.token.length === 36){
-                        swal({title: "Customer succesfully updated",icon: "success"});
+                        swal({title: "Stok succesfully updated",icon: "success"});
                         this.getStock();
                         const modal = Modal.getInstance(document.getElementById('updateModal'));
                         modal.hide();

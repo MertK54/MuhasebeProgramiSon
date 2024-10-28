@@ -3,13 +3,12 @@
     <form @submit.prevent="createPurchaseInvoice" class="mx-auto my-3 p-5 bg-dark" style="width: 50rem; border: 1px solid grey;">
       <div class="row mb-3">
         <div class="col-md-6">
-          <label for="supplier" class="form-label">Select Supplier:</label>
-          <v-select :options="supplier" label="name" v-model="formData.supplier_id" :reduce="supplier => supplier.id" placeholder="Select Supplier" style="color: black;"></v-select>
-        </div>
-  
-        <div class="col-md-6">
           <label for="customer" class="form-label">Select Customer:</label>
           <v-select :options="customer" label="name" v-model="formData.customer_id" :reduce="customer => customer.id" placeholder="Select Customer" style="color: black;"></v-select>
+        </div>
+        <div class="col-md-6">
+          <label for="supplier" class="form-label">Select Supplier:</label>
+          <v-select :options="supplier" label="name" v-model="formData.supplier_id" :reduce="supplier => supplier.id" placeholder="Select Supplier" style="color: black;"></v-select>
         </div>
       </div>
       
@@ -21,8 +20,8 @@
       <div class="row mb-3">
         <div class="col-md-12">
           <label for="validationDefault02" class="form-label">Quantity</label>
-          <small v-if="currentStock" style="color: grey;">Available stock: {{ currentStock.quantity }}</small>
           <input type="number" class="form-control" v-model="formData.quantity" required />
+          <small style="color: grey;">Available stock: {{ this.currentStock.quantity }}</small>
         </div>
         
         <div class="col-md-12 mt-2">
@@ -62,19 +61,31 @@
                   customer_id:null,
                   supplier_id:null,
                   product_name:'',
-                  quantity:'',
-                  unit_price:'',
-                  invoice_type:'purchase'
+                  quantity:0,
+                  unit_price:0.00,
+                  invoice_type:'purchase',
+                  total_amount:0.00
               },
               supplier:[],
               data:[],
               stocks: [],
-              customer:[]
+              customer:[],
+              currentStock:[]
           }
+
+          
       },
       created(){
           this.getStock();
           this.getCustomer();
+      },
+      watch: {
+        'formData.product_name'(newValue) {
+          this.currentStock = this.stocks.find(stock => stock.product_name === newValue);
+          if (this.currentStock) {
+            this.formData.unit_price = this.currentStock.unit_price;
+          }
+        }
       },
       methods:{
           getStock(){
@@ -98,15 +109,11 @@
               });
           },
           createPurchaseInvoice() {
+            this.formData.total_amount = this.formData.quantity * this.formData.unit_price;
             console.log("Form Data:", this.formData);
             const stockToUpdate = this.stocks.find(stock => stock.product_name === this.formData.product_name);
             if (stockToUpdate && this.formData.quantity > stockToUpdate.quantity) {
-                swal({
-                    title: "Stock Limit Exceeded",
-                    text: `You cannot sell more than ${stockToUpdate.quantity} items.`,
-                    icon: "warning",
-                    dangerMode: true
-                });
+                swal({title: "Stock Limit Exceeded", text: `You cannot sell more than ${stockToUpdate.quantity} items.`, icon: "warning",dangerMode: true});
                 return; 
             }
               const params = {
@@ -115,6 +122,7 @@
                 product_name: this.formData.product_name,
                 quantity: parseInt(this.formData.quantity, 10),
                 unit_price: parseFloat(this.formData.unit_price),
+                total_amount:parseFloat(this.formData.total_amount),
                 type:'purchase'
               };
               console.log("Params being sent:", params);

@@ -21,8 +21,8 @@
     <div class="row mb-3">
       <div class="col-md-12">
         <label for="validationDefault02" class="form-label">Quantity</label>
-        <small v-if="currentStock" style="color: grey;">Available stock: {{ currentStock.quantity }}</small>
         <input type="number" class="form-control" v-model="formData.quantity" required />
+        <small style="color: grey;">Available stock: {{ this.currentStock.quantity }}</small>
       </div>
       
       <div class="col-md-12 mt-2">
@@ -62,20 +62,30 @@ export default {
                 customer_id:null,
                 supplier_id:null,
                 product_name:'',
-                quantity:'',
-                unit_price:'',
+                quantity:0,
+                unit_price:0.00,
+                total_amount:0.00,
                 invoice_type:'sale'
             },
             supplier:[],
             data:[],
             stocks: [],
-            customer:[]
+            customer:[],
+            currentStock:[]
         }
     },
     created(){
-        this.getStock();
         this.getCustomer();
+        this.getStock();
     },
+    watch: {
+    'formData.product_name'(newValue) {
+      this.currentStock = this.stocks.find(stock => stock.product_name === newValue);
+      if (this.currentStock) {
+        this.formData.unit_price = this.currentStock.unit_price;
+      }
+    }
+  },
     methods:{
         getStock(){
             axios.get('http://localhost:5280/api/stock/stock-get')
@@ -98,15 +108,11 @@ export default {
             });
         },
         createSaleInvoice() {
+          this.formData.total_amount = this.formData.quantity * this.formData.unit_price;
           console.log("Form Data:", this.formData);
           const stockToUpdate = this.stocks.find(stock => stock.product_name === this.formData.product_name);
           if (stockToUpdate && this.formData.quantity > stockToUpdate.quantity) {
-              swal({
-                  title: "Stock Limit Exceeded",
-                  text: `You cannot sell more than ${stockToUpdate.quantity} items.`,
-                  icon: "warning",
-                  dangerMode: true
-              });
+              swal({title: "Stock Limit Exceeded",text: `You cannot sell more than ${stockToUpdate.quantity} items.`,icon: "warning",dangerMode: true });
               return; 
           }
             const params = {
@@ -115,6 +121,7 @@ export default {
               product_name: this.formData.product_name,
               quantity: parseInt(this.formData.quantity, 10),
               unit_price: parseFloat(this.formData.unit_price),
+              total_amount:parseFloat(this.formData.total_amount),
               type:'sale'
             };
             console.log("Params being sent:", params);
@@ -124,8 +131,9 @@ export default {
               console.log("Invoce created", response.data);
               const stockToUpdate = this.stocks.find(stock => stock.product_name == params.product_name);
               console.log(stockToUpdate);
+              const updatedQuantity = stockToUpdate.quantity - params.quantity;
                 if (stockToUpdate) {
-                    this.updateStock(stockToUpdate.stock_id, params.quantity, params.unit_price);
+                    this.updateStock(stockToUpdate.stock_id, updatedQuantity ,params.unit_price);
                 } else {
                     console.error("Stock not found for product:", params.product_name);
                 }
@@ -133,6 +141,7 @@ export default {
             .catch(error => {
                 console.log("Error creating invoce", error.response ? error.response.data : error); 
             });
+
         },
         updateStock(id, quantitySold, unitPrice) {
           const params = {

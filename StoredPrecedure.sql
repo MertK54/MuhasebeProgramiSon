@@ -225,7 +225,7 @@ BEGIN
     SELECT procedure_token as result;
 END //
 DELIMITER ;
-use creator_demo;
+
 DELIMITER //
 CREATE PROCEDURE sp_invoice_create_sale(
     IN supplier_id VARCHAR(36),
