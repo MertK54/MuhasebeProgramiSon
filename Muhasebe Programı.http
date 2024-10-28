@@ -1,0 +1,6 @@
+@Muhasebe_Programı_HostAddress = http://localhost:5280
+
+GET {{Muhasebe_Programı_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

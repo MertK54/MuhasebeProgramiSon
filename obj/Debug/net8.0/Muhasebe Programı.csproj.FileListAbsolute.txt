@@ -1,0 +1,332 @@
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/appsettings.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/clientapp/jsconfig.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/clientapp/package-lock.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/clientapp/package.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Muhasebe Programı.exe
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Muhasebe Programı.deps.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Muhasebe Programı.runtimeconfig.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.csproj.AssemblyReference.cache
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfoInputs.cache
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.csproj.CoreCompileInputs.cache
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets/msbuild.Muhasebe Programı.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets/msbuild.build.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/scopedcss/bundle/Muhasebe Programı.styles.css
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe.D1A8123E.Up2Date
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/refint/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/Muhasebe Programı.genruntimeconfig.cache
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/obj/Debug/net8.0/ref/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Google.Protobuf.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/K4os.Compression.LZ4.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/K4os.Compression.LZ4.Streams.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/K4os.Hash.xxHash.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/MySql.Data.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/BouncyCastle.Crypto.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/System.Security.Permissions.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/ZstdSharp.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win-x64/native/comerr64.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win-x64/native/gssapi64.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win-x64/native/k5sprt64.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win-x64/native/krb5_64.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win-x64/native/krbcc64.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/Muhasebe Programı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/appsettings.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/clientapp/jsconfig.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/clientapp/package-lock.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/clientapp/package.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.exe
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.deps.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.runtimeconfig.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Google.Protobuf.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/K4os.Compression.LZ4.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/K4os.Compression.LZ4.Streams.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/K4os.Hash.xxHash.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/MySql.Data.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/BouncyCastle.Crypto.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.Security.Permissions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/ZstdSharp.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/comerr64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/gssapi64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/k5sprt64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/krb5_64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/krbcc64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.csproj.AssemblyReference.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfoInputs.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.csproj.CoreCompileInputs.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.Muhasebe Programı.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.build.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/scopedcss/bundle/Muhasebe Programı.styles.css
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe.D1A8123E.Up2Date
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/refint/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.genruntimeconfig.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/obj/Debug/net8.0/ref/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.Bcl.TimeProvider.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgramı/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/appsettings.Development.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/clientapp/jsconfig.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/clientapp/package.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/appsettings.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/clientapp/package-lock.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.deps.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.runtimeconfig.json
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Muhasebe Programı.pdb
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Google.Protobuf.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/K4os.Compression.LZ4.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/K4os.Compression.LZ4.Streams.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/K4os.Hash.xxHash.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.Bcl.TimeProvider.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/MySql.Data.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/BouncyCastle.Crypto.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.Security.Permissions.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/System.Windows.Extensions.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/ZstdSharp.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/comerr64.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/gssapi64.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/k5sprt64.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/krb5_64.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win-x64/native/krbcc64.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.csproj.AssemblyReference.cache
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfoInputs.cache
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfo.cs
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.csproj.CoreCompileInputs.cache
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cs
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cache
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.build.json
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.development.json
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.Muhasebe Programı.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.build.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/scopedcss/bundle/Muhasebe Programı.styles.css
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe.D1A8123E.Up2Date
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/refint/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.pdb
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/Muhasebe Programı.genruntimeconfig.cache
+/Users/mertkezer/Documents/MuhasebeProgramı/obj/Debug/net8.0/ref/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/appsettings.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/clientapp/jsconfig.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/clientapp/package-lock.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/clientapp/package.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.exe
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.deps.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.runtimeconfig.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Google.Protobuf.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/K4os.Compression.LZ4.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/K4os.Compression.LZ4.Streams.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/K4os.Hash.xxHash.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.Bcl.TimeProvider.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/MySql.Data.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/BouncyCastle.Crypto.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.Security.Permissions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/ZstdSharp.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/comerr64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/gssapi64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/k5sprt64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/krb5_64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/krbcc64.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.csproj.AssemblyReference.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfoInputs.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.csproj.CoreCompileInputs.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.sourcelink.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.Muhasebe Programı.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.build.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Muhasebe Programı.props
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/scopedcss/bundle/Muhasebe Programı.styles.css
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe.D1A8123E.Up2Date
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/refint/Muhasebe Programı.dll
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.pdb
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.genruntimeconfig.cache
+C:/Users/Polisoft WEB/Desktop/MuhasebeProgrami/MuhasebeProgrami/obj/Debug/net8.0/ref/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/appsettings.Development.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/appsettings.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/clientapp/jsconfig.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/clientapp/package.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/clientapp/package-lock.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.deps.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.runtimeconfig.json
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Muhasebe Programı.pdb
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Google.Protobuf.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/K4os.Compression.LZ4.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/K4os.Compression.LZ4.Streams.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/K4os.Hash.xxHash.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.Bcl.TimeProvider.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/MySql.Data.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/BouncyCastle.Crypto.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.Security.Permissions.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/System.Windows.Extensions.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/ZstdSharp.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/comerr64.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/gssapi64.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/k5sprt64.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/krb5_64.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win-x64/native/krbcc64.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.csproj.AssemblyReference.cache
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfoInputs.cache
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.AssemblyInfo.cs
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.csproj.CoreCompileInputs.cache
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cs
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.MvcApplicationPartsAssemblyInfo.cache
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.build.json
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.development.json
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.Muhasebe Programı.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.build.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Muhasebe Programı.props
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/scopedcss/bundle/Muhasebe Programı.styles.css
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe.D1A8123E.Up2Date
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/refint/Muhasebe Programı.dll
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.pdb
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/Muhasebe Programı.genruntimeconfig.cache
+/Users/mertkezer/Documents/MuhasebeProgrami/obj/Debug/net8.0/ref/Muhasebe Programı.dll
