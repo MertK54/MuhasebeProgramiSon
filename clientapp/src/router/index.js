@@ -19,6 +19,10 @@ import StockDeleteComponent from '@/components/Stocks/StockDeleteComponent.vue';
 import InvoiceSaleComponent from '@/components/Invoices/InvoiceSaleComponent.vue';
 import InvoicePurchaseComponent from '@/components/Invoices/InvoicePurchaseComponent.vue';
 import InvoiceSaleReturnComponent from '@/components/Invoices/InvoiceSaleReturnComponent.vue';
+import InvoicePurchaseReturnComponent from '@/components/Invoices/InvoicePurchaseReturnComponent.vue';
+import InvoiceListComponent from '@/components/Invoices/InvoiceListComponent.vue';
+import InvoiceDeleteComponent from '@/components/Invoices/InvoiceDeleteComponent.vue';
+import InvoiceUpdateComponent from '@/components/Invoices/InvoiceUpdateComponent.vue';
 const routes = [
   {
     path: '/login',
@@ -90,6 +94,22 @@ const routes = [
       {
         path:'invoice-create/sale-return',
         component:InvoiceSaleReturnComponent
+      },
+      {
+        path:'invoice-create/purchase-return',
+        component:InvoicePurchaseReturnComponent
+      },
+      {
+        path:'invoice-list-all',
+        component:InvoiceListComponent
+      },
+      {
+        path:'invoice-delete',
+        component:InvoiceDeleteComponent
+      },
+      {
+        path:'invoice-update',
+        component:InvoiceUpdateComponent
       }
     ]
   }

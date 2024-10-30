@@ -78,6 +78,7 @@ export default {
     created(){
         this.getCustomer();
         this.getStock();
+        this.getSupplier();
     },
     watch: {
     'formData.product_name'(newValue) {
@@ -89,12 +90,19 @@ export default {
     }
   },
     methods:{
+      getSupplier(){
+            axios.get('http://localhost:5280/api/supplier/supplier-get')
+            .then(response => {
+              if (response && response.data) {
+                this.supplier = response.data.map(item => ({ id: item.supplier_id, name: item.name }));
+              }
+            });
+        },
         getStock(){
             axios.get('http://localhost:5280/api/stock/stock-get')
             .then(response => {
               if (response && response.data) {
                 this.stocks = response.data;
-                this.supplier = response.data.map(item => ({ id: item.supplier_id, name: item.supplier_name }))
               }
             });
         },
@@ -112,9 +120,8 @@ export default {
         createSaleInvoice() {
           this.formData.total_amount = this.formData.quantity * this.formData.unit_price;
           console.log("Form Data:", this.formData);
-          const stockToUpdate = this.stocks.find(stock => stock.product_name === this.formData.product_name);
-          if (stockToUpdate && this.formData.quantity > stockToUpdate.quantity) {
-              swal({title: "Stock Limit Exceeded",text: `You cannot sell more than ${stockToUpdate.quantity} items.`,icon: "warning",dangerMode: true });
+          if (this.formData.quantity > this.currentStock.quantity) {
+              swal({title: "Stock Limit Exceeded",text: `You cannot sell more than ${this.currentStock.quantity} items.`,icon: "warning",dangerMode: true });
               return; 
           }
             const params = {
@@ -125,25 +132,18 @@ export default {
               unit_price: parseFloat(this.formData.unit_price),
               total_amount:parseFloat(this.formData.total_amount),
               stock_id: this.formData.stock_id,
-              type:'sale'
+              invoice_type:'sale'
             };
             console.log("Params being sent:", params);
             axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
-            .then(response => {
-              swal({title:"Invoce created",icon:"success"})
-              console.log("Invoce created", response.data);
-              const stockToUpdate = this.stocks.find(stock => stock.product_name == params.product_name);
-              console.log(stockToUpdate);
-              const updatedQuantity = stockToUpdate.quantity - params.quantity;
-                if (stockToUpdate) {
-                    this.updateStock(stockToUpdate.stock_id, updatedQuantity ,params.unit_price);
-                } else {
-                    console.error("Stock not found for product:", params.product_name);
-                }
-            })
-            .catch(error => {
-                console.log("Error creating invoce", error.response ? error.response.data : error); 
-            });
+              .then(response => {
+                swal({title:"Invoce created",icon:"success"})
+                console.log("Invoce created", response.data);
+                this.updateStock(params.stock_id,params.quantity,params.unit_price);
+              })
+              .catch(error => {
+                  console.log("Error creating invoce", error.response ? error.response.data : error); 
+              });
 
         },
         updateStock(id, quantitySold, unitPrice) {
@@ -153,7 +153,7 @@ export default {
               unit_price: unitPrice
           }
           console.log("params değerleri:"+params);
-          axios.post('http://localhost:5280/api/stock/stock-update',params, {headers: { 'Content-Type': 'application/json' }})
+          axios.post('http://localhost:5280/api/stock/stock-update-reduce',params, {headers: { 'Content-Type': 'application/json' }})
           .then(response => {
               console.log("Stock updated", response.data);
           })

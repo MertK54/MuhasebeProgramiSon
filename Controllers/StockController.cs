@@ -66,14 +66,39 @@ namespace MuhasebeProgrami.Controllers
             return Ok(stockList);
         }
         [HttpPost()]
-        [Route("stock-update")]
+        [Route("stock-update-reduce")]
         public IActionResult StockUpdate( [FromBody] UpdateStock updateStock)
         {
             string token = "";
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using(MySqlCommand command = new MySqlCommand("CALL sp_stock_update(@stock_id,@quantity,@unit_price)",connection))
+                using(MySqlCommand command = new MySqlCommand("CALL sp_stock_update_reduce(@stock_id,@quantity,@unit_price)",connection))
+                {
+                    command.Parameters.AddWithValue("@stock_id", updateStock.stock_id);
+                    command.Parameters.AddWithValue("@quantity", updateStock.quantity);
+                    command.Parameters.AddWithValue("@unit_price", updateStock.unit_price);
+                    using(MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            token = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+                    return Ok(new{token=token});
+        }
+
+        [HttpPost()]
+        [Route("stock-update-add")]
+        public IActionResult StockUpdateAdd( [FromBody] UpdateStock updateStock)
+        {
+            string token = "";
+            using(MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                using(MySqlCommand command = new MySqlCommand("CALL sp_stock_update_add(@stock_id,@quantity,@unit_price)",connection))
                 {
                     command.Parameters.AddWithValue("@stock_id", updateStock.stock_id);
                     command.Parameters.AddWithValue("@quantity", updateStock.quantity);

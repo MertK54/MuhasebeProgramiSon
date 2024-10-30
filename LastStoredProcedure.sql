@@ -249,6 +249,7 @@ DELIMITER //
 CREATE PROCEDURE sp_invoice_create_purchase(
     IN supplier_id VARCHAR(36),
     IN customer_id VARCHAR(36),
+    IN stock_id VARCHAR(45),
     IN product_name VARCHAR(50),
     IN quantity INT,
     IN unit_price DECIMAL(10,2),
@@ -257,8 +258,8 @@ CREATE PROCEDURE sp_invoice_create_purchase(
 BEGIN
     DECLARE new_invoice_number INT DEFAULT 0;
     SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO new_invoice_number FROM invoices;
-    INSERT INTO invoices (invoice_id,invoice_number, supplier_id, customer_id, product_name, quantity, unit_price,type) 
-    VALUES (UUID(),new_invoice_number, supplier_id, customer_id, product_name, quantity, unit_price,type);
+    INSERT INTO invoices (invoice_id,invoice_number, supplier_id, customer_id,stock_id,product_name, quantity, unit_price,type) 
+    VALUES (UUID(),new_invoice_number, supplier_id, customer_id, product_name,stock_id, quantity, unit_price,type);
 END //
 DELIMITER ;
 

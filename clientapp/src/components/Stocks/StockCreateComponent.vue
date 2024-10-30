@@ -1,5 +1,5 @@
 <template>
-    <h1>Stock Supplier</h1>
+    <h1>Stock Create</h1>
     <form @submit.prevent="createStock" class="mx-auto my-3 p-5 bg-dark" style="width: 50rem;border: 1px solid grey;">
       <div class="row mb-3">
         <div class="col-md-12 mb-2">
@@ -49,10 +49,11 @@ export default {
     data(){
         return {
             formData:{
+                supplier_name:'',
+                supplier_id: null,
                 product_name:'',
                 quantity:'',
-                unit_price:'',
-                supplier_id: null,
+                unit_price:''
             },
             supplier:[],
             data:[]
@@ -60,6 +61,12 @@ export default {
     },
     created(){
         this.getSupplier();
+    },
+    watch:{
+      'formData.supplier_id'(newValue){
+        console.log(newValue)
+        this.formData.supplier_name = this.supplier.find(supplier => supplier.id === newValue)?.name || '';
+      }
     },
     methods:{
         getSupplier(){
@@ -72,12 +79,13 @@ export default {
         },
         createStock() {
             const params = {
-                product_name: this.formData.product_name,
-                quantity: parseInt(this.formData.quantity, 10), 
-                unit_price: parseFloat(this.formData.unit_price), 
-                supplier_id: this.formData.supplier_id,
+              supplier_id: this.formData.supplier_id,
+              supplier_name: this.formData.supplier_name,
+              product_name: this.formData.product_name,
+              quantity: parseInt(this.formData.quantity, 10), 
+              unit_price: parseFloat(this.formData.unit_price), 
             };
-
+            console.log("params values",params);
             axios.post('http://localhost:5280/api/stock/stock-create', params, {
                 headers: { 'Content-Type': 'application/json' }
             })

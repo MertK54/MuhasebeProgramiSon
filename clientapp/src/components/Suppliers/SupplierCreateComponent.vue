@@ -1,6 +1,6 @@
 <template>
     <h1>Create Supplier</h1>
-    <form @submit.prevent="createSupplier" class="mx-auto my-3 p-5" style="width: 50rem;border: 1px solid grey;">
+    <form @submit.prevent="createSupplier" class="mx-auto my-3 p-5 form-dark" style="width: 50rem;border: 1px solid grey;">
       <div class="row mb-3">
         <div class="col-md-6 mb-2">
           <label for="name" class="form-label">Name</label>

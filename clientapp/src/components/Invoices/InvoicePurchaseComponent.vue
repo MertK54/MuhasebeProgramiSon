@@ -60,6 +60,7 @@
               formData:{
                   customer_id:null,
                   supplier_id:null,
+                  stock_id:null,
                   product_name:'',
                   quantity:0,
                   unit_price:0.00,
@@ -71,29 +72,36 @@
               stocks: [],
               customer:[],
               currentStock:[]
-          }
-
-          
+          }  
       },
       created(){
           this.getStock();
           this.getCustomer();
+          this.getSupplier();
       },
       watch: {
         'formData.product_name'(newValue) {
           this.currentStock = this.stocks.find(stock => stock.product_name === newValue);
           if (this.currentStock) {
             this.formData.unit_price = this.currentStock.unit_price;
+            this.formData.stock_id = this.currentStock.stock_id;
           }
         }
       },
       methods:{
+          getSupplier(){
+              axios.get('http://localhost:5280/api/supplier/supplier-get')
+              .then(response => {
+                if (response && response.data) {
+                  this.supplier = response.data.map(item => ({ id: item.supplier_id, name: item.name }));
+                }
+              });
+          },
           getStock(){
               axios.get('http://localhost:5280/api/stock/stock-get')
               .then(response => {
                 if (response && response.data) {
                   this.stocks = response.data;
-                  this.supplier = response.data.map(item => ({ id: item.supplier_id, name: item.supplier_name }))
                 }
               });
           },
@@ -111,32 +119,25 @@
           createPurchaseInvoice() {
             this.formData.total_amount = this.formData.quantity * this.formData.unit_price;
             console.log("Form Data:", this.formData);
-            const stockToUpdate = this.stocks.find(stock => stock.product_name === this.formData.product_name);
-            if (stockToUpdate && this.formData.quantity > stockToUpdate.quantity) {
-                swal({title: "Stock Limit Exceeded", text: `You cannot sell more than ${stockToUpdate.quantity} items.`, icon: "warning",dangerMode: true});
+            if (this.formData.quantity > this.currentStock.quantity) {
+                swal({title: "Stock Limit Exceeded", text: `You cannot sell more than ${this.currentStock.quantity} items.`, icon: "warning",dangerMode: true});
                 return; 
             }
               const params = {
                 supplier_id: this.formData.supplier_id,
                 customer_id: this.formData.customer_id,
+                stock_id: this.formData.stock_id,
                 product_name: this.formData.product_name,
                 quantity: parseInt(this.formData.quantity, 10),
                 unit_price: parseFloat(this.formData.unit_price),
                 total_amount:parseFloat(this.formData.total_amount),
-                type:'purchase'
+                invoice_type:'purchase'
               };
               console.log("Params being sent:", params);
               axios.post('http://localhost:5280/api/invoice/invoice-create-purchase', params, {headers: { 'Content-Type': 'application/json' }})
               .then(response => {
                 swal({title:"Invoce created",icon:"success"})
                 console.log("Invoce created", response.data);
-                const stockToUpdate = this.stocks.find(stock => stock.product_name == params.product_name);
-                console.log(stockToUpdate);
-                  if (stockToUpdate) {
-                      this.updateStock(stockToUpdate.stock_id, params.quantity, params.unit_price);
-                  } else {
-                      console.error("Stock not found for product:", params.product_name);
-                  }
               })
               .catch(error => {
                   console.log("Error creating invoce", error.response ? error.response.data : error); 
@@ -149,7 +150,7 @@
                 unit_price: unitPrice
             }
             console.log("params değerleri:"+params);
-            axios.post('http://localhost:5280/api/stock/stock-update',params, {headers: { 'Content-Type': 'application/json' }})
+            axios.post('http://localhost:5280/api/stock/stock-update-reduce',params, {headers: { 'Content-Type': 'application/json' }})
             .then(response => {
                 console.log("Stock updated", response.data);
             })

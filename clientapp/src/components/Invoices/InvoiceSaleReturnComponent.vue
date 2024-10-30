@@ -18,7 +18,7 @@
                 <td>{{ invoice.supplier_id }}</td>
                 <td>{{ invoice.quantity }}</td>
                 <td>{{ invoice.unit_price }}</td>
-                <td>{{ invoice.unit_price * invoice.quantity }}</td>
+                <td>{{ invoice.total_amount }}</td>
                 <td><button class="btn btn-primary" @click="returnSaleInvoice(invoice)">Return</button></td>
             </tr>
         </tbody>
@@ -66,7 +66,7 @@
         returnSaleInvoice(invoice){
             this.formDataAddValue(invoice);
             console.log("Form Data:", this.formData);
-                const params = {
+            const params = {
                 supplier_id: this.formData.supplier_id,
                 customer_id: this.formData.customer_id,
                 stock_id:this.formData.stock_id,
@@ -75,16 +75,16 @@
                 unit_price: parseFloat(this.formData.unit_price),
                 total_amount:parseFloat(this.formData.total_amount),
                 invoice_type:'sale_return'
-                };
-                console.log("Params being sent:", params);
-                axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
-                .then(response => {
+            };
+            console.log("Params being sent:", params);
+            axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
+            .then(response => {
                 swal({title:"Invoce created",icon:"success"})
                 console.log("Invoce created", response.data);
                 this.updateStock(this.formData.stock_id, params.quantity ,params.unit_price);
-                })
-                .catch(error => {
-                    console.log("Error creating invoce", error.response ? error.response.data : error); 
+            })
+            .catch(error => {
+                console.log("Error creating invoce", error.response ? error.response.data : error); 
                 });
         },
         formDataAddValue(invoice){
@@ -101,10 +101,10 @@
             const params = {
                 stock_id: id,
                 quantity: quantitySold,
-                unit_price: unitPrice
+                unit_price: unitPrice,
             }
-            console.log("params değerleri:"+params);
-            axios.post('http://localhost:5280/api/invoice/sale-return',params, {headers: { 'Content-Type': 'application/json' }})
+            console.log("params value:"+params);
+            axios.post('http://localhost:5280/api/stock/stock-update-add',params, {headers: { 'Content-Type': 'application/json' }})
             .then(response => {
                 console.log("Stock updated", response.data);
             })
@@ -112,10 +112,9 @@
                 console.log("Error updating stock", error.response ? error.response.data : error);
                 swal({ title: "Stock update failed", text: "Could not update stock", icon: "error" });
             });
-            }
+        }
     }
-    }
+}
     </script>
-
-    <style>
-    </style>
+<style>
+</style>

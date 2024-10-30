@@ -107,7 +107,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/invoice-list" class="nav-link">
+            <router-link to="/dashboard/invoice-list-all" class="nav-link">
               <i class="fas fa-list" style="color: #17a2b8;"></i> List
             </router-link>
           </li>

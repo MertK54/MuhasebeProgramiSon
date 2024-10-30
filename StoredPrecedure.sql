@@ -215,6 +215,38 @@ END //
 DELIMITER ;
 
 DELIMITER //
+CREATE PROCEDURE sp_stock_update_add (in $stock_id VARCHAR(36),in $quantity int, in $unit_price DECIMAL(10,2))
+BEGIN
+        DECLARE quantity_stock int;
+		DECLARE procedure_token CHAR(36) default '';
+		SELECT quantity into quantity_stock
+			FROM stocks
+			WHERE stock_id = $stock_id;
+		UPDATE stocks
+			SET quantity = quantity_stock + $quantity, unit_price = $unit_price
+			WHERE stock_id = $stock_id;
+			SET procedure_token = UUID();
+        SELECT procedure_token AS result;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE sp_stock_update_reduce (in $stock_id VARCHAR(36),in $quantity int, in $unit_price DECIMAL(10,2))
+BEGIN
+        DECLARE quantity_stock int;
+		DECLARE procedure_token CHAR(36) default '';
+		SELECT quantity into quantity_stock
+			FROM stocks
+			WHERE stock_id = $stock_id;
+		UPDATE stocks
+			SET quantity = quantity_stock - $quantity, unit_price = $unit_price
+			WHERE stock_id = $stock_id;
+			SET procedure_token = UUID();
+        SELECT procedure_token AS result;
+END //
+DELIMITER ;
+
+DELIMITER //
 CREATE PROCEDURE sp_stock_delete(in $stock_id VARCHAR(36))
 BEGIN
     DECLARE procedure_token CHAR(36) DEFAULT '';
@@ -228,20 +260,23 @@ DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE sp_invoice_create_sale(
-    IN supplier_id VARCHAR(36),
-    IN customer_id VARCHAR(36),
-    IN stock_id VARCHAR(36),
-    IN product_name VARCHAR(50),
-    IN quantity INT,
-    IN unit_price DECIMAL(10,2),
-    IN total_amount DECIMAL(10,2),
-    IN type VARCHAR(20)
+    IN $supplier_id VARCHAR(36),
+    IN $customer_id VARCHAR(36),
+    IN $stock_id VARCHAR(36),
+    IN $product_name VARCHAR(50),
+    IN $quantity INT,
+    IN $unit_price DECIMAL(10,2),
+    IN $total_amount DECIMAL(10,2),
+    IN $type VARCHAR(20)
 )
 BEGIN
-    DECLARE new_invoice_number INT DEFAULT 0;
-    SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO new_invoice_number FROM invoices;
-    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,product_name, quantity, unit_price,total_amount,type) 
-    VALUES (UUID(),new_invoice_number,supplier_id,customer_id,stock_id,product_name, quantity, unit_price,total_amount,type);
+    DECLARE $new_invoice_number INT DEFAULT 0;
+    DECLARE $supplier_name VARCHAR(45);DECLARE $customer_name VARCHAR(45);
+    SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO $new_invoice_number FROM invoices;
+    SELECT name INTO $supplier_name FROM suppliers WHERE supplier_id = $supplier_id;
+    SELECT name INTO $customer_name FROM customers WHERE customer_id = $customer_id;
+    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type) 
+    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,$customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type);
 END //
 DELIMITER ;
 
@@ -249,23 +284,37 @@ DELIMITER //
 CREATE PROCEDURE sp_invoice_create_purchase(
     IN supplier_id VARCHAR(36),
     IN customer_id VARCHAR(36),
+    IN stock_id VARCHAR(45),
     IN product_name VARCHAR(50),
     IN quantity INT,
     IN unit_price DECIMAL(10,2),
-    IN type ENUM('sale', 'purchase', 'sale_return', 'purchase_return')
+    IN total_amount DECIMAL(10,2),
+    IN type VARCHAR(20)
 )
 BEGIN
-    DECLARE new_invoice_number INT DEFAULT 0;
-    SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO new_invoice_number FROM invoices;
-    INSERT INTO invoices (invoice_id,invoice_number, supplier_id, customer_id, product_name, quantity, unit_price,type) 
-    VALUES (UUID(),new_invoice_number, supplier_id, customer_id, product_name, quantity, unit_price,type);
+    DECLARE $new_invoice_number INT DEFAULT 0;
+    DECLARE $supplier_name VARCHAR(45);DECLARE $customer_name VARCHAR(45);
+    SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO $new_invoice_number FROM invoices;
+    SELECT name INTO $supplier_name FROM suppliers WHERE supplier_id = $supplier_id;
+    SELECT name INTO $customer_name FROM customers WHERE customer_id = $customer_id;
+    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type) 
+    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,$customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type);
 END //
 DELIMITER ;
+
 use creator_demo;
+
 DELIMITER //
-CREATE PROCEDURE sp_invoice_sale_get(IN type ENUM('sale', 'purchase', 'sale_return', 'purchase_return'))
+CREATE PROCEDURE sp_invoice_sale_get(IN type VARCHAR(20))
 BEGIN 
 	SELECT * FROM invoices WHERE invoices.type = type;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE sp_invoice_all_get()
+BEGIN 
+	SELECT * FROM invoices;
 END //
 DELIMITER ;
 
@@ -282,5 +331,15 @@ BEGIN
 			WHERE stock_id = $stock_id;
 			SET procedure_token = UUID();
         SELECT procedure_token AS result;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE sp_invoice_delete (IN $invoice_id VARCHAR(36))
+BEGIN 
+	DECLARE procedure_token CHAR(36) DEFAULT '';
+	DELETE FROM invoices WHERE invoice_id = $invoice_id;
+    SET procedure_token = UUID();
+    SELECT procedure_token AS result;
 END //
 DELIMITER ;
