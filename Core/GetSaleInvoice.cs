@@ -10,6 +10,7 @@ namespace MuhasebeProgrami.Core
     public class GetSaleInvoice
     {
         public string invoice_id { get;set;}
+        public string stock_id { get; set; }
         public string customer_id { get; set; }
         public string supplier_id { get; set; }
         public string product_name { get; set; }

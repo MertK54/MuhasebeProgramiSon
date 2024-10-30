@@ -1,56 +1,121 @@
-<template>
+    <template>
     <table class="table table-dark">
-       <thead>
-         <tr>
-           <th class="p-3">Product Name</th>
-           <th>Supplier</th>
-           <th>Supplier Id</th>
-           <th>Quantity</th>
-           <th>Unit Price</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr v-for="(stock, index) in stocks" :key="index">
-           <td class="p-3">{{ stock.product_name }}</td>
-           <td>{{ stock.supplier_name}}</td>
-           <td>{{ stock.supplier_id}}</td>
-           <td>{{ stock.quantity }}</td>
-           <td>{{ stock.unit_price }}</td>
-         </tr>
-       </tbody>
-     </table>
- </template>
- <script>
- import axios from 'axios';
- import swal from 'sweetalert';
- export default {
-     name: "InvoiceSaleReturnComponent",
-     data(){
-         return{
-             invoices: []
-         }
-     },
-     mounted() {
-     this.getInvoice();
-     },
-     methods:{
-        getInvoice(){
+        <thead>
+            <tr>
+                <th class="p-3">Product Name</th>
+                <th>Supplier</th>
+                <th>Supplier Id</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Amount</th>
+                <th>Return</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(invoice, index) in invoices" :key="index">
+                <td class="p-3">{{ invoice.product_name }}</td>
+                <td>{{ invoice.supplier_name }}</td>
+                <td>{{ invoice.supplier_id }}</td>
+                <td>{{ invoice.quantity }}</td>
+                <td>{{ invoice.unit_price }}</td>
+                <td>{{ invoice.unit_price * invoice.quantity }}</td>
+                <td><button class="btn btn-primary" @click="returnSaleInvoice(invoice)">Return</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </template>
+
+    <script>
+    import axios from 'axios';
+    import swal from 'sweetalert';
+
+    export default {
+    name: "InvoiceSaleReturnComponent",
+    data() {
+        return {
+            invoices: [],
+            formData:{
+                product_name:'',
+                customer_id:0,
+                supplier_id:0,
+                stock_id:0,
+                quantity:0,
+                unit_price:0.00,
+                total_amount:0.00
+            }
+        }
+    },
+    mounted() {
+        this.getInvoice();
+    },
+    methods: {
+        getInvoice() {
             const params = {
-              type:'sale'
+                type: 'sale'
             };
-             axios.post('http://localhost:5280/api/invoice/invoice-get-sale',params, {headers: { 'Content-Type': 'application/json' }})
-             .then(response => {
-               if(response != null && response.data != null)
-                 this.invoices = response.data;
-             })
-             .catch(error => {
-               swal({title:"Sale return invoice not listed",text: "error when listing stock",icon:"warning",dangerMode:true})
-             console.error("stocks not get", error);
-             });
-         }
-     }
- }
- </script>
- <style>
- 
- </style>
+            axios.post('http://localhost:5280/api/invoice/invoice-get-sale', params, { headers: { 'Content-Type': 'application/json' } })
+                .then(response => {
+                    if (response != null && response.data != null)
+                        this.invoices = response.data; 
+                })
+                .catch(error => {
+                    swal({ title: "Sale return invoice not listed", text: "Error when listing stock", icon: "warning", dangerMode: true });
+                    console.error("stocks not get", error);
+                });
+        },
+        returnSaleInvoice(invoice){
+            this.formDataAddValue(invoice);
+            console.log("Form Data:", this.formData);
+                const params = {
+                supplier_id: this.formData.supplier_id,
+                customer_id: this.formData.customer_id,
+                stock_id:this.formData.stock_id,
+                product_name: this.formData.product_name,
+                quantity: parseInt(this.formData.quantity, 10),
+                unit_price: parseFloat(this.formData.unit_price),
+                total_amount:parseFloat(this.formData.total_amount),
+                invoice_type:'sale_return'
+                };
+                console.log("Params being sent:", params);
+                axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
+                .then(response => {
+                swal({title:"Invoce created",icon:"success"})
+                console.log("Invoce created", response.data);
+                this.updateStock(this.formData.stock_id, params.quantity ,params.unit_price);
+                })
+                .catch(error => {
+                    console.log("Error creating invoce", error.response ? error.response.data : error); 
+                });
+        },
+        formDataAddValue(invoice){
+            this.formData.product_name = invoice.product_name,
+            this.formData.supplier_name = invoice.supplier_name,
+            this.formData.supplier_id = invoice.supplier_id,
+            this.formData.quantity = invoice.quantity,
+            this.formData.unit_price = invoice.unit_price,
+            this.formData.total_amount = invoice.quantity * invoice.unit_price;
+            this.formData.stock_id = invoice.stock_id;
+            this.formData.customer_id = invoice.customer_id;
+        },
+        updateStock(id, quantitySold, unitPrice) {
+            const params = {
+                stock_id: id,
+                quantity: quantitySold,
+                unit_price: unitPrice
+            }
+            console.log("params değerleri:"+params);
+            axios.post('http://localhost:5280/api/invoice/sale-return',params, {headers: { 'Content-Type': 'application/json' }})
+            .then(response => {
+                console.log("Stock updated", response.data);
+            })
+            .catch(error => {
+                console.log("Error updating stock", error.response ? error.response.data : error);
+                swal({ title: "Stock update failed", text: "Could not update stock", icon: "error" });
+            });
+            }
+    }
+    }
+    </script>
+
+    <style>
+    </style>

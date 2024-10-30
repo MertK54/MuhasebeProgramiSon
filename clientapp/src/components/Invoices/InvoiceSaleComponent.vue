@@ -65,6 +65,7 @@ export default {
                 quantity:0,
                 unit_price:0.00,
                 total_amount:0.00,
+                stock_id: null,
                 invoice_type:'sale'
             },
             supplier:[],
@@ -83,6 +84,7 @@ export default {
       this.currentStock = this.stocks.find(stock => stock.product_name === newValue);
       if (this.currentStock) {
         this.formData.unit_price = this.currentStock.unit_price;
+        this.formData.stock_id = this.currentStock.stock_id;
       }
     }
   },
@@ -122,6 +124,7 @@ export default {
               quantity: parseInt(this.formData.quantity, 10),
               unit_price: parseFloat(this.formData.unit_price),
               total_amount:parseFloat(this.formData.total_amount),
+              stock_id: this.formData.stock_id,
               type:'sale'
             };
             console.log("Params being sent:", params);
