@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Muhasebe Programı")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55a961068acaffc61fdefd79a055e8a7db8db8b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed52d7bd12c0d12ce58e6c43da7b32e2041e0649")]
 [assembly: System.Reflection.AssemblyProductAttribute("Muhasebe Programı")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Muhasebe Programı")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
