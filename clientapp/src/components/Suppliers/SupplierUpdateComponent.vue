@@ -1,5 +1,5 @@
 <template>
-    <table class="table">
+    <table class="table table-dark">
         <thead>
             <tr>
                 <th>Name</th>
@@ -19,7 +19,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade text-dark" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,24 +92,35 @@ export default {
             modal.show();
         },
         updateSupplier() {
-            axios.post("http://localhost:5280/api/supplier/supplier-update", this.selectedSupplier)
-                .then(response => {
-                    if(response.data.token.length===36){
-                        console.log("Supplier updated", response.data);
-                        this.getSupplier();
-                        const modal = Modal.getInstance(document.getElementById('updateModal'));
-                        modal.hide();
-                    }
-                })
-                .catch(error => {
-                    console.log("Update fail", error);
-                    swal({
-                        title: "Supplier not updated",
-                        text: "Error when updated suppliers",
-                        icon: "warning",
-                        dangerMode: true
+            const matched = this.suppliers.some(sup => sup.name === this.selectedSupplier.name || sup.e_mail === this.selectedSupplier.e_mail || sup.supplier_id !== this.selectedSupplier.supplier_id)
+            console.log("matched suppliers:",matched)
+            if(!matched){
+                const params = {
+                    supplier_id: this.selectedSupplier.supplier_id,
+                    name: this.selectedSupplier.name,
+                    e_mail: this.selectedSupplier.e_mail,
+                    phone_number: this.selectedSupplier.phone_number,
+                    adress: this.selectedSupplier.adress
+                }
+                console.log("params value", params);
+                axios.post("http://localhost:5280/api/supplier/supplier-update",params)
+                    .then(response => {
+                        if(response.data.token.length===36){
+                             console.log("Supplier updated", response.data);
+                            swal({title: "Supplier updated",text: "Successfly updated supplier",icon: "success"});
+                            this.getSupplier();
+                            const modal = Modal.getInstance(document.getElementById('updateModal'));
+                            modal.hide();
+                        }
+                    })
+                    .catch(error => {
+                        console.log("Update fail", error);
+                        swal({title: "Supplier not updated",text: "Error when updated supplier",icon: "warning",dangerMode: true});
                     });
-                });
+            }
+            else{
+                swal({title: "There is customer!",text: "There is a supplier with this email and name",icon: "warning",dangerMode: true});
+            }
         }
     }
 }

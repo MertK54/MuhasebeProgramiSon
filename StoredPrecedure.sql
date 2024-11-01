@@ -40,13 +40,13 @@ END //
 DELIMITER 
 
 DELIMITER //
-CREATE PROCEDURE sp_create_customer(IN $name VARCHAR(50),IN $e_mail VARCHAR(50),IN $phone_number VARCHAR(13), IN $adress VARCHAR(255))
+CREATE PROCEDURE sp_customer_create(IN $name VARCHAR(50),IN $e_mail VARCHAR(50),IN $phone_number VARCHAR(13), IN $adress VARCHAR(255))
 BEGIN
 	DECLARE user_count INT;
     DECLARE procedure_token CHAR(36) default '';
     SELECT COUNT(*) INTO user_count
     FROM customers
-    WHERE email = $e_mail AND name = $name;
+    WHERE e_mail = $e_mail AND name = $name;
     IF user_count = 0 THEN
 		INSERT INTO customers (customer_id,name,e_mail,phone_number,adress) VALUES (UUID(),$name,$e_mail,$phone_number,$adress);
         SET procedure_token = UUID();
@@ -66,17 +66,17 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE sp_update_customer(IN $customer_id  VARCHAR(36),IN $name  VARCHAR(50),IN $e_mail  VARCHAR(50),IN $phone_number  VARCHAR(15), IN $adress  VARCHAR(255),IN $created_at VARCHAR(20))
+CREATE PROCEDURE sp_customer_update(IN $customer_id  VARCHAR(36),IN $name  VARCHAR(50),IN $e_mail  VARCHAR(50),IN $phone_number  VARCHAR(15), IN $adress  VARCHAR(255))
 BEGIN
 
 		DECLARE user_count INT;
         DECLARE procedure_token CHAR(36) default '';
 		SELECT COUNT(*) INTO user_count
         FROM customers
-        WHERE customer_id = $customer_id;
+        WHERE customer_id = $customer_id AND name = $name;
         IF user_count > 0 THEN
 			UPDATE customers 
-            SET name = $name, e_mail = $e_mail, phone_number = $phone_number, adress = $adress,created_at = $created_at
+            SET name = $name, e_mail = $e_mail, phone_number = $phone_number, adress = $adress
             WHERE customer_id = $customer_id;
             SET procedure_token = UUID();
 		ELSE
@@ -105,7 +105,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE sp_supplier_create(IN $name VARCHAR(50), IN $e_mail VARCHAR(50), IN $phone_number VARCHAR(15),IN $adress VARCHAR(255))
+CREATE PROCEDURE sp_supplier_create(IN $name VARCHAR(50), IN $e_mail VARCHAR(50),IN $adress VARCHAR(255), IN $phone_number VARCHAR(15))
 BEGIN
 	DECLARE user_count INT;
     DECLARE procedure_token CHAR(36) default '';
@@ -166,14 +166,14 @@ BEGIN
     DECLARE procedure_token CHAR(36) default '';
     SELECT COUNT(*) into number_stock
     FROM stocks
-    WHERE product_name = $product_name;
+    WHERE product_name = $product_name AND supplier_id = $supplier_id;
     IF number_stock = 0 THEN
 		INSERT INTO stocks (stock_id,product_name,quantity,unit_price,supplier_id) VALUES(UUID(),$product_name,$quantity,$unit_price,$supplier_id);
 		SET procedure_token = UUID();
 	ELSE
-		SET procedure_token = '';
+		SET procedure_token = 'error';
     END IF;
-			SELECT procedure_token AS result;
+		SELECT procedure_token AS result;
 END //
 DELIMITER ;
 
@@ -267,7 +267,9 @@ CREATE PROCEDURE sp_invoice_create_sale(
     IN $quantity INT,
     IN $unit_price DECIMAL(10,2),
     IN $total_amount DECIMAL(10,2),
-    IN $type VARCHAR(20)
+    IN $type VARCHAR(20),
+    IN $invoice_statu VARCHAR(20),
+    IN $payment_method VARCHAR(30)
 )
 BEGIN
     DECLARE $new_invoice_number INT DEFAULT 0;
@@ -275,21 +277,25 @@ BEGIN
     SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO $new_invoice_number FROM invoices;
     SELECT name INTO $supplier_name FROM suppliers WHERE supplier_id = $supplier_id;
     SELECT name INTO $customer_name FROM customers WHERE customer_id = $customer_id;
-    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type) 
-    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,$customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type);
+    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,
+    customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type,invoice_statu,payment_method) 
+    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,
+    $customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type,$invoice_statu,$payment_method);
 END //
 DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE sp_invoice_create_purchase(
-    IN supplier_id VARCHAR(36),
-    IN customer_id VARCHAR(36),
-    IN stock_id VARCHAR(45),
-    IN product_name VARCHAR(50),
-    IN quantity INT,
-    IN unit_price DECIMAL(10,2),
-    IN total_amount DECIMAL(10,2),
-    IN type VARCHAR(20)
+    IN $supplier_id VARCHAR(36),
+    IN $customer_id VARCHAR(36),
+    IN $stock_id VARCHAR(45),
+    IN $product_name VARCHAR(50),
+    IN $quantity INT,
+    IN $unit_price DECIMAL(10,2),
+    IN $total_amount DECIMAL(10,2),
+    IN $type VARCHAR(20),
+	IN $invoice_statu VARCHAR(20),
+    IN $payment_method VARCHAR(30)
 )
 BEGIN
     DECLARE $new_invoice_number INT DEFAULT 0;
@@ -297,8 +303,10 @@ BEGIN
     SELECT COALESCE(MAX(invoice_number), 0) + 1 INTO $new_invoice_number FROM invoices;
     SELECT name INTO $supplier_name FROM suppliers WHERE supplier_id = $supplier_id;
     SELECT name INTO $customer_name FROM customers WHERE customer_id = $customer_id;
-    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type) 
-    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,$customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type);
+    INSERT INTO invoices (invoice_id,invoice_number,supplier_id,customer_id,stock_id,
+    customer_name,supplier_name,product_name, quantity, unit_price,total_amount,type,invoice_statu,payment_method) 
+    VALUES (UUID(),$new_invoice_number,$supplier_id,$customer_id,$stock_id,
+    $customer_name,$supplier_name,$product_name, $quantity, $unit_price,$total_amount,$type,$invoice_statu,$payment_method);
 END //
 DELIMITER ;
 
@@ -335,6 +343,16 @@ END //
 DELIMITER ;
 
 DELIMITER //
+CREATE PROCEDURE sp_invoice_update (IN $invoice_id VARCHAR(36), IN $invoice_statu VARCHAR(20),IN $payment_method VARCHAR(20))
+BEGIN
+	DECLARE $procedure_token CHAR(36) default '';
+	UPDATE invoices SET invoice_statu = $invoice_statu, payment_method = $payment_method 
+    WHERE invoice_id = $invoice_id;
+    SET $procedure_token = UUID();
+    SELECT $procedure_token;
+END //
+DELIMITER ;
+
 CREATE PROCEDURE sp_invoice_delete (IN $invoice_id VARCHAR(36))
 BEGIN 
 	DECLARE procedure_token CHAR(36) DEFAULT '';

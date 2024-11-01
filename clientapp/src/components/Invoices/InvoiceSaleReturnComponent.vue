@@ -1,10 +1,13 @@
-    <template>
+<template>
     <table class="table table-dark">
         <thead>
             <tr>
-                <th class="p-3">Product Name</th>
+                <th class="p-3">Invoice Id</th>
+                <th>Product Name</th>
                 <th>Supplier</th>
-                <th>Supplier Id</th>
+                <th>Customer</th>
+                <th>Payment</th>
+                <th>Statu</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
                 <th>Total Amount</th>
@@ -13,9 +16,12 @@
         </thead>
         <tbody>
             <tr v-for="(invoice, index) in invoices" :key="index">
-                <td class="p-3">{{ invoice.product_name }}</td>
+                <td class="p-3">{{ invoice.invoice_id }}</td>
+                <td>{{ invoice.product_name }}</td>
                 <td>{{ invoice.supplier_name }}</td>
-                <td>{{ invoice.supplier_id }}</td>
+                <td>{{ invoice.customer_name }}</td>
+                <td>{{ invoice.payment_method }}</td>
+                <td>{{ invoice.invoice_statu }}</td>
                 <td>{{ invoice.quantity }}</td>
                 <td>{{ invoice.unit_price }}</td>
                 <td>{{ invoice.total_amount }}</td>
@@ -23,9 +29,8 @@
             </tr>
         </tbody>
     </table>
-    </template>
-
-    <script>
+</template>    
+<script>
     import axios from 'axios';
     import swal from 'sweetalert';
 
@@ -41,8 +46,10 @@
                 stock_id:0,
                 quantity:0,
                 unit_price:0.00,
-                total_amount:0.00
-            }
+                total_amount:0.00,
+                invoice_statu:null,
+                payment_method:null
+            },
         }
     },
     mounted() {
@@ -57,6 +64,7 @@
                 .then(response => {
                     if (response != null && response.data != null)
                         this.invoices = response.data; 
+                        console.log(this.invoices);
                 })
                 .catch(error => {
                     swal({ title: "Sale return invoice not listed", text: "Error when listing stock", icon: "warning", dangerMode: true });
@@ -74,7 +82,9 @@
                 quantity: parseInt(this.formData.quantity, 10),
                 unit_price: parseFloat(this.formData.unit_price),
                 total_amount:parseFloat(this.formData.total_amount),
-                invoice_type:'sale_return'
+                invoice_type:'sale_return',
+                invoice_statu:this.formData.invoice_statu,
+                payment_method:this.formData.payment_method
             };
             console.log("Params being sent:", params);
             axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
@@ -96,6 +106,8 @@
             this.formData.total_amount = invoice.quantity * invoice.unit_price;
             this.formData.stock_id = invoice.stock_id;
             this.formData.customer_id = invoice.customer_id;
+            this.formData.invoice_statu = invoice.invoice_statu;
+            this.formData.payment_method = invoice.payment_method;
         },
         updateStock(id, quantitySold, unitPrice) {
             const params = {
@@ -115,6 +127,6 @@
         }
     }
 }
-    </script>
+</script>
 <style>
 </style>

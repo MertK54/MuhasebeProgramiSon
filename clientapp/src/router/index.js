@@ -33,7 +33,6 @@ const routes = [
     path: '/dashboard',
     name: 'DashboardView',
     component: DashboardView,
-    meta:{requiresAuth:true},
     children:[
       {
         path:'customer-list',
@@ -130,6 +129,4 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-
 export default router;

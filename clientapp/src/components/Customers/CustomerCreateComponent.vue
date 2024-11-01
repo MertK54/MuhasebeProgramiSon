@@ -14,7 +14,7 @@
       <div class="row mb-3 mb-2">
         <div class="col-md-6">
           <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" v-model="formData.phone_number" required  pattern="^\+?[0-9]{7,15}$">
+          <input type="number" class="form-control" v-model="formData.phone_number" required  pattern="^\+?[0-9]{7,15}$">
         </div>
         <div class="col-md-6 mb-2">
           <label for="validationDefault04" class="form-label">Address</label>
@@ -47,7 +47,7 @@ import swal from 'sweetalert';
         formData:{
             name:'',
             e_mail:'',
-            phone_number:'',
+            phone_number:null,
             adress:''
         }
     }
@@ -57,21 +57,22 @@ import swal from 'sweetalert';
       var params={
         name:this.formData.name,
         e_mail:this.formData.e_mail,
-        phone_number:this.formData.phone_number,
+        phone_number:this.formData.phone_number.toString(),
         adress:this.formData.adress
       }
-        axios.post('http://localhost:5280/api/customer/customer-create',params,{
-            headers:{
-                'Content-Type':'application/json'
-            }}
-        )
+        console.log("params values",params)
+        axios.post('http://localhost:5280/api/customer/customer-create',params,{headers:{'Content-Type':'application/json'}})
         .then(response => {
         if (response && response.data && response.data.token.length===36) {
           swal({title: "Succesfully added customer",icon: "success"});
         }
-      })
+        else{
+          swal({title: "Error added customer",text:"there is a customer with this email and name",icon: "error"});
+        }
+        })
         .catch(error => {
-            console.log(error.data.token)
+            swal({title: "Error added customer",text:"There is a customer with this email and name",icon: "error"});
+            console.log("error in create customer",error)
         })
     }
   }

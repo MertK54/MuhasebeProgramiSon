@@ -1,5 +1,5 @@
 <template>
-    <table class="table">
+    <table class="table table-dark">
         <thead>
             <tr>
                 <th>Name</th>
@@ -38,19 +38,14 @@ export default {
             axios.get('http://localhost:5280/api/supplier/supplier-get')
             .then(response => {
                 this.suppliers = response.data;
-
             })
             .catch(error => {
                 console.log("Supplier not get",error)
             })
         },
         removeSupplier(supplier_id){
-            axios.delete('http://localhost:5280/api/supplier/supplier-delete', {
-                data: { supplier_id }, 
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
+            axios.delete('http://localhost:5280/api/supplier/supplier-delete', {data: { supplier_id }, headers: {'Content-Type': 'application/json'}})
+            .then(response => {
                 console.log(response.data);
                 this.getSupplier();
                 swal({ title: "Successfully Deleted", text: "Supplier has been deleted successfully.", con: "success" });

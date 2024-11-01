@@ -25,9 +25,19 @@
         <small style="color: grey;">Available stock: {{ this.currentStock.quantity }}</small>
       </div>
       
-      <div class="col-md-12 mt-2">
+      <div class="col-md-12 mt-2 mb-3">
         <label for="validationDefault03" class="form-label">Unit Price</label>
         <input type="number" class="form-control" v-model="formData.unit_price" required step="0.01" />
+      </div>
+
+      <div class="row mb-3">
+        <label for="invoice_status" class="form-label">Select Status:</label>
+        <v-select :options="invoice_status" v-model="formData.invoice_statu" placeholder="Select Status" style="color: black;"></v-select>
+      </div>
+
+      <div class="row mb-3">
+        <label for="invoice_status" class="form-label">Select Payment:</label>
+        <v-select :options="payment_methods" v-model="formData.payment_method" placeholder="Select Payment" style="color: black;"></v-select>
       </div>
     </div>
 
@@ -66,19 +76,23 @@ export default {
                 unit_price:0.00,
                 total_amount:0.00,
                 stock_id: null,
-                invoice_type:'sale'
+                invoice_type:'sale',
+                invoice_statu:null,
+                payment_method:null
             },
             supplier:[],
             data:[],
             stocks: [],
             customer:[],
-            currentStock:[]
+            currentStock:[],
+            invoice_status:['pending','approved'],
+            payment_methods:['credit card','cash payment','remittance']
         }
     },
-    created(){
-        this.getCustomer();
-        this.getStock();
-        this.getSupplier();
+    async created(){
+        await this.getCustomer();
+        await this.getStock();
+        await this.getSupplier();
     },
     watch: {
     'formData.product_name'(newValue) {
@@ -87,6 +101,9 @@ export default {
         this.formData.unit_price = this.currentStock.unit_price;
         this.formData.stock_id = this.currentStock.stock_id;
       }
+    },
+    'formData.supplier_id'(newValue) {
+      this.stocks = this.stocks.filter(stock => stock.supplier_id === newValue);
     }
   },
     methods:{
@@ -124,6 +141,10 @@ export default {
               swal({title: "Stock Limit Exceeded",text: `You cannot sell more than ${this.currentStock.quantity} items.`,icon: "warning",dangerMode: true });
               return; 
           }
+          const checkNull = Object.values(this.formData).some(value => value === null);
+          if(checkNull){
+            swal({title: "Fill all field!" ,text:"Please fill all field",icon: "warning",dangerMode: true });
+          }
             const params = {
               supplier_id: this.formData.supplier_id,
               customer_id: this.formData.customer_id,
@@ -132,19 +153,20 @@ export default {
               unit_price: parseFloat(this.formData.unit_price),
               total_amount:parseFloat(this.formData.total_amount),
               stock_id: this.formData.stock_id,
-              invoice_type:'sale'
+              invoice_type:'sale',
+              invoice_statu:this.formData.invoice_statu,
+              payment_method:this.formData.payment_method
             };
             console.log("Params being sent:", params);
             axios.post('http://localhost:5280/api/invoice/invoice-create-sale', params, {headers: { 'Content-Type': 'application/json' }})
               .then(response => {
-                swal({title:"Invoce created",icon:"success"})
-                console.log("Invoce created", response.data);
+                swal({title:"Invoice created",icon:"success"})
+                console.log("Invoice created", response.data);
                 this.updateStock(params.stock_id,params.quantity,params.unit_price);
               })
               .catch(error => {
                   console.log("Error creating invoce", error.response ? error.response.data : error); 
               });
-
         },
         updateStock(id, quantitySold, unitPrice) {
           const params = {

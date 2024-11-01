@@ -14,7 +14,7 @@
       <div class="row mb-3 mb-2">
         <div class="col-md-6">
           <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" v-model="formData.phone_number" required pattern="^\+?[0-9]{7,15}$">
+          <input type="number" class="form-control" v-model="formData.phone_number" required pattern="^\+?[0-9]{7,15}$">
         </div>
         <div class="col-md-6 mb-2">
           <label for="adress" class="form-label">Address</label>
@@ -56,16 +56,20 @@ export default {
           const params = {
             name: this.formData.name,
             e_mail: this.formData.e_mail,
-            phone_number:this.formData.phone_number,
+            phone_number:this.formData.phone_number.toString(),
             adress: this.formData.adress
           }
             axios.post('http://localhost:5280/api/supplier/supplier-create',params,{headers:{'Content-Type':'application/json'}})
             .then(response => {
-              if (response && response.data && response.data.token.length===36) {
+              if (response.data.token.length===36) {
                 swal({title: "Succesfully added supplier",icon: "success"});
+              }
+              else{
+                swal({title: "There is a customer with this e-mail and name",icon: "error"});
               }
             })
             .catch(error => {
+                swal({title: "Error added supplier",icon: "error"});
                 console.log("Error creating supplier",error)
             })
         }

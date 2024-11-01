@@ -10,5 +10,7 @@ namespace MuhasebeProgrami.Core
         public decimal unit_price { get; set; }
         public decimal total_amount { get; set; }
         public string invoice_type { get; set; }
+        public string payment_method { get; set; }
+        public string invoice_statu { get; set; }
     }
 }

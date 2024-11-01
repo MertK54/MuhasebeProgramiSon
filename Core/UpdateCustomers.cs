@@ -7,7 +7,6 @@ namespace MuhasebeProgrami.Core
         public string? e_mail { get; set; }
         public string? phone_number { get; set; }
         public string? adress { get; set; }
-        public string? updated_at { get; set; }
 
     }
 }

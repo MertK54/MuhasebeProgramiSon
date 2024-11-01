@@ -50,7 +50,7 @@ namespace MuhasebeProgrami.Controllers
                     {
                         while(reader.Read())
                         {
-                            var get_supplier = new GetSupplier() 
+                            supplierList.Add(new GetSupplier() 
                             {
                                 supplier_id = reader["supplier_id"].ToString(),
                                 name = reader["name"].ToString(),
@@ -58,8 +58,7 @@ namespace MuhasebeProgrami.Controllers
                                 phone_number = reader["phone_number"].ToString(),
                                 adress = reader["adress"].ToString(),
                                 created_at = reader["created_at"].ToString(),
-                            };
-                            supplierList.Add(get_supplier);
+                            });
                         }
                     }
                 }
@@ -90,7 +89,7 @@ namespace MuhasebeProgrami.Controllers
                     }
                 }
             }
-                                return Ok(new{token = token});
+            return Ok(new{token = token});
         }
         [HttpDelete()]
         [Route("supplier-delete")]

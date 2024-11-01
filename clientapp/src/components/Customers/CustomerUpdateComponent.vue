@@ -19,7 +19,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade text-dark" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,20 +83,33 @@ export default {
             modal.show();
         },
         updateCustomer() {
-            axios.post("http://localhost:5280/api/customer/customer-update", this.selectedCustomer)
-                .then(response => {
-                    if(response.data.token.length===36){
-                        swal({title: "Customer succesfully updated",icon: "success"});
-                        this.getCustomer();
-                        const modal = Modal.getInstance(document.getElementById('updateModal'));
-                        modal.hide();
-                    }
-                })
-                .catch(error => {
-                    console.log("Update fail", error);
-                    swal({title: "Customer not updated",text: "Error when updated customer",icon: "warning",dangerMode: true});
-
-                });
+            const matched =  this.customers.some(customer => customer.name === this.selectedCustomer.name || customer.e_mail === this.selectedCustomer.e_mail || customer.id !== this.selectedCustomer.id);
+            console.log("matched: ",matched)
+            if(!matched) {
+                const params = {
+                    customer_id:this.selectedCustomer.customer_id,
+                    name: this.selectedCustomer.name,
+                    e_mail: this.selectedCustomer.e_mail,
+                    phone_number: this.selectedCustomer.phone_number,
+                    adress:this.selectedCustomer.adress
+                }
+                axios.post("http://localhost:5280/api/customer/customer-update",params)
+                    .then(response => {
+                        if(response.data.token.length===36){
+                            swal({title: "Customer succesfully updated",icon: "success"});
+                            this.getCustomer();
+                            const modal = Modal.getInstance(document.getElementById('updateModal'));
+                            modal.hide();
+                        }
+                    })
+                    .catch(error => {
+                        console.log("Update fail", error);
+                        swal({title: "Customer not updated",text: "Error when updated customer",icon: "warning",dangerMode: true});
+                    });
+            }
+            else{
+                swal({title: "There is customer!",text: "There is a customer with this email and name ",icon: "warning",dangerMode: true});
+            }
         }
     }
 }

@@ -24,13 +24,13 @@
                 <div class="row gy-3 overflow-hidden">
                   <div class="col-12">
                     <div class="form-floating mb-3">
-                      <input v-model="FormData.username" type="text" name="username" id="username" class="form-control" required>
+                      <input v-model="formData.username" type="text" name="username" id="username" class="form-control" required>
                       <label for="username" class="form-label">Username</label>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-floating mb-3">
-                      <input v-model="FormData.password" type="password" class="form-control" name="password" id="password" required>
+                      <input v-model="formData.password" type="password" class="form-control" name="password" id="password" required>
                       <label for="password" class="form-label">Password</label>
                     </div>
                   </div>
@@ -56,7 +56,7 @@ export default {
   name: 'UserLogin',
   data() {
     return {
-      FormData: {
+      formData: {
         username: '',
         password: ''
       },
@@ -64,34 +64,23 @@ export default {
   },
   methods: {
     submitForm() {
-      axios.post('http://localhost:5280/api/user/login', this.FormData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+      const params = {
+        username:this.formData.username,
+        password: this.formData.password
+      }
+      axios.post('http://localhost:5280/api/user/login',params,{headers: {'Content-Type': 'application/json'}})
       .then(response => {
-        if (response && response.data && response.data.token) {
-        localStorage.setItem('token', response.data.token);
-        if (response.data.redirectUrl) {
+        if (response && response.data && response.data.token || response.data.redirectUrl) {
+          localStorage.setItem('token', response.data.token);
           this.$router.push('/dashboard');
         }
-        } else {
-          swal({
-                        title: "İnvailed login",
-                        text: "invailed login",
-                        icon: "warning",
-                        dangerMode: true
-                    });
+        else {
+          swal({title: "İnvailed login",text: "invailed login",icon: "warning",dangerMode: true});
         }
       })
       .catch(error => {
         console.error('error: ', error);
-        swal({
-              title: "Error when logging in",
-              text: "Username or password incorrect",
-              icon: "warning",
-              dangerMode: true
-                    });
+        swal({title: "Error when logging in",text: "Username or password incorrect",icon: "warning",dangerMode: true});
       });
     }
   }

@@ -2,27 +2,22 @@
   <nav id="sidebarMenu" class="sidebar d-md-block sidebar-sticky px-3" style="background-color: #081028">
     <div class="position-sticky">
       <ul class="nav flex-column">
-        <!-- Logo -->
         <li class="nav-item p-3 text-center">
           <a href="#" class="navbar-brand">
             <h2 class="d-block mt-2 text-light">Administrator</h2>
           </a>
         </li>
-
-        <!-- Dashboard -->
         <li class="nav-item">
-          <a class="nav-link active" href="#">
+          <a class="nav-link active" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt" style="color: #007bff;"></i>
             Dashboard
           </a>
         </li>
-
-        <!-- Customers Dropdown -->
         <li class="nav-item">
           <a class="nav-link" @click="toggleCustomersDropdown" :class="{ 'active': isCustomersDropdownOpen }">
             <i class="fas fa-fw fa-user" style="color: #28a745;"></i>
             Customers
-            <i class="fas fa-chevron-down" style="margin-left: auto;"></i> <!-- Arrow icon -->
+            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
           </a>
           <ul v-if="isCustomersDropdownOpen" class="nav flex-column ms-3">
             <li class="nav-item">
@@ -134,12 +129,6 @@
               <router-link to="/dashboard/stock-list" class="nav-link"><i class="fas fa-list" style="color: #17a2b8;"></i>List</router-link>
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-sign-in-alt" style="color: #007bff;"></i>
-            Login
-          </a>
         </li>
       </ul>
     </div>

@@ -2,10 +2,12 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th class="p-3">Product Name</th>
-                <th>Invoice Id</th>
+                <th class="p-3">Invoice Id</th>
+                <th>Product Name</th>
                 <th>Supplier</th>
                 <th>Customer</th>
+                <th>Payment</th>
+                <th>Statu</th>
                 <th>Type</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
@@ -15,14 +17,16 @@
         </thead>
         <tbody>
             <tr v-for="(invoice, index) in invoices" :key="index">
-                <td class="p-3">{{ invoice.product_name }}</td>
-                <td>{{ invoice.invoice_id }}</td>
+                <td class="p-3">{{ invoice.invoice_id }}</td>
+                <td>{{ invoice.product_name }}</td>
                 <td>{{ invoice.supplier_name }}</td>
                 <td>{{ invoice.customer_name }}</td>
+                <td>{{ invoice.payment_method }}</td>
+                <td>{{ invoice.invoice_statu }}</td>
                 <td>{{ invoice.invoice_type }}</td>
                 <td>{{ invoice.quantity }}</td>
                 <td>{{ invoice.unit_price }}</td>
-                <td>{{ invoice.total_amount}}</td>
+                <td>{{ invoice.total_amount }}</td>
                 <td><button class="btn btn-primary" @click="openUpdateModal(invoice)">Update</button></td>
             </tr>
         </tbody>
@@ -31,26 +35,42 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Stock</h5>
+                    <h5 class="modal-title text-black">Update Invoice</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form @submit.prevent="" style="color:black">
+                    <form @submit.prevent="updateInvoice" style="color:black">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Product Name</label>
-                            <input type="text" v-model="selectedInvoice.product_name" class="form-control" id="product_name">
+                            <label for="product_name" class="form-label">Product Name</label>
+                            <input type="text" v-model="selectedInvoice.product_name" class="form-control" id="product_name" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Quantity</label>
-                            <input type="text" v-model="selectedInvoice.quantity" class="form-control" id="quantity">
+                            <label for="supplier_name" class="form-label">Supplier Name</label>
+                            <input type="text" v-model="selectedInvoice.supplier_name" class="form-control" id="product_name" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Invoice Type</label>
-                            <input type="text" v-model="selectedInvoice.invoice_type" class="form-control" id="invoice_type">
+                            <label for="customer_name" class="form-label">Customer Name</label>
+                            <input type="text" v-model="selectedInvoice.customer_name" class="form-control" id="product_name" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Unit Price</label>
-                            <input type="text" v-model="selectedInvoice.unit_price" class="form-control" id="unit_price">
+                            <label for="payment_method" class="form-label">Payment Method</label>
+                            <v-select :options="payment_methods" v-model="selectedInvoice.payment_method"></v-select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="invoice_status" class="form-label">Invoice Status</label>
+                            <v-select :options="invoice_status" v-model="selectedInvoice.invoice_statu"></v-select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" v-model="selectedInvoice.quantity" class="form-control" id="quantity" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="invoice_tpye" class="form-label">Invoice Type</label>
+                            <input type="text" v-model="selectedInvoice.invoice_type" class="form-control" id="invoice_type" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="unit_price" class="form-label">Unit Price</label>
+                            <input type="number" v-model="selectedInvoice.unit_price" class="form-control" id="unit_price" disabled>
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>
@@ -69,7 +89,9 @@ export default {
     data() {
         return {
             selectedInvoice: {},
-            invoices:[]
+            invoices:[],
+            payment_methods:['credit-card','cash','payment','remittance'],
+            invoice_status:['pending','approved']
         }
     },
     mounted() {
@@ -91,6 +113,22 @@ export default {
             this.selectedInvoice = { ...invoice };
             const modal = new Modal(document.getElementById('updateModal'));
             modal.show();
+        },
+        updateInvoice(){
+            const params = {
+                invoice_id: this.selectedInvoice.invoice_id,
+                payment_method:this.selectedInvoice.payment_method,
+                invoice_status:this.selectedInvoice.invoice_statu,
+            }
+            axios.put('http://localhost:5280/api/invoice/invoice-update',params)
+            .then(response => {
+                swal({title:"Successfuly updated",icon:"success"});
+                console.log("Response data: ",response.data);
+            })
+            .catch(error => {
+                swal({title:"Error in updated",icon:"warning"});
+                console.log("Error: ",error)
+            })
         }
     }
 }

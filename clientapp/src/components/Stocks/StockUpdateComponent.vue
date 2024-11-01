@@ -2,9 +2,9 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th class="p-3">Product Name</th>
+                <th class="p-3">Stock Id</th>
+                <th>Product Name</th>
                 <th>Supplier</th>
-                <th>Supplier Id</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
                 <th>Update</th>
@@ -12,9 +12,9 @@
         </thead>
         <tbody>
             <tr v-for="(stock, index) in stocks" :key="index">
-                <td class="p-3">{{ stock.product_name }}</td>
+                <td class="p-3">{{ stock.stock_id }}</td>
+                <td>{{ stock.product_name }}</td>
                 <td>{{ stock.supplier_name}}</td>
-                <td>{{ stock.supplier_id}}</td>
                 <td>{{ stock.quantity }}</td>
                 <td>{{ stock.unit_price }}</td>
                 <td><button class="btn btn-primary" @click="openUpdateModal(stock)">Update</button></td>
@@ -24,23 +24,15 @@
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-dark">
                     <h5 class="modal-title">Update Stock</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form @submit.prevent="updateStock" style="color:black">
-                        <!-- <div class="mb-3">
-                            <label for="email" class="form-label">Supplier Name</label>
-                            <input type="email" v-model="selectedStock.supplier_name" class="form-control" id="supplier_name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Supplier Id</label>
-                            <input type="text" v-model="selectedStock.supplier_id" class="form-control" id="supplier_id">
-                        </div> -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Product Name</label>
-                            <input type="text" v-model="selectedStock.product_name" class="form-control" id="product_name">
+                            <input type="text" v-model="selectedStock.product_name" class="form-control" id="product_name" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Quantity</label>

@@ -18,7 +18,7 @@ namespace MuhasebeProgrami.Controllers
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using(MySqlCommand command = new MySqlCommand("CALL sp_create_customer(@name,@e_mail,@phone_number,@adress)", connection))
+                using(MySqlCommand command = new MySqlCommand("CALL sp_customer_create(@name,@e_mail,@phone_number,@adress)", connection))
                 {
                     command.Parameters.AddWithValue("@name", customer.name);
                     command.Parameters.AddWithValue("@phone_number", customer.phone_number);
@@ -49,16 +49,14 @@ namespace MuhasebeProgrami.Controllers
                     {
                         while (reader.Read())
                         {
-                            var customer = new GetCustomers() 
+                            customers.Add(new GetCustomers() 
                             {
                                 customer_id = reader["customer_id"].ToString(),
                                 name = reader["name"].ToString(),
                                 e_mail = reader["e_mail"].ToString(),
                                 phone_number = reader["phone_number"].ToString(),
                                 adress = reader["adress"].ToString(),
-                                created_at = reader["created_at"].ToString(),
-                            };
-                            customers.Add(customer); 
+                            });
                         }
                     }
                     connection.Close(); 
@@ -74,19 +72,18 @@ namespace MuhasebeProgrami.Controllers
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using(MySqlCommand command = new MySqlCommand("Call sp_update_customer(@customer_id,@name,@e_mail,@phone_number,@adress,@created_at)",connection))
+                using(MySqlCommand command = new MySqlCommand("Call sp_customer_update(@customer_id,@name,@e_mail,@phone_number,@adress)",connection))
                 {
                     command.Parameters.AddWithValue("@customer_id", updateCustomers.customer_id);
                     command.Parameters.AddWithValue("@name", updateCustomers.name);
                     command.Parameters.AddWithValue("@e_mail", updateCustomers.e_mail);
                     command.Parameters.AddWithValue("@phone_number", updateCustomers.phone_number);
                     command.Parameters.AddWithValue("@adress", updateCustomers.adress);
-                    command.Parameters.AddWithValue("@created_at", updateCustomers.updated_at);
                     using(MySqlDataReader reader = command.ExecuteReader())
                     {
                         while(reader.Read())
                         {
-                        token = reader.GetString(0);
+                            token = reader.GetString(0);
                         }
                     }
                 }

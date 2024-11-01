@@ -2,7 +2,8 @@
     <table class="table table-dark">
        <thead>
          <tr>
-           <th class="p-3">Product Name</th>
+           <th class="p-3">Stock Id</th>
+           <th>Product Name</th>
            <th>Supplier</th>
            <th>Supplier Id</th>
            <th>Quantity</th>
@@ -12,7 +13,8 @@
        </thead>
        <tbody>
          <tr v-for="(stock, index) in stocks" :key="index">
-           <td class="p-3">{{ stock.product_name }}</td>
+           <td class="p-3">{{ stock.stock_id }}</td>
+           <td>{{ stock.product_name }}</td>
            <td>{{ stock.supplier_name}}</td>
            <td>{{ stock.supplier_id}}</td>
            <td>{{ stock.quantity }}</td>

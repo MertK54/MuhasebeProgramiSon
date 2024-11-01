@@ -10,14 +10,6 @@ namespace MuhasebeProgramı.Controllers
     public class UserController : ControllerBase
     {
         private readonly string _connectionString = "server=localhost;user=root;password=admin;database=creator_demo";
-        [Authorize]
-        [HttpGet]
-        [Route("get")]
-        public string Get()
-        {
-            return "boş string";
-        }
-
         [HttpPost()]
         [Route("login")]
         public IActionResult Login([FromBody] LoginRequest loginrequest)
@@ -39,11 +31,7 @@ namespace MuhasebeProgramı.Controllers
                     }
                 }
             }
-                    return Ok(new
-                    {
-                        token = token,
-                        redirectUrl = "/dashboard"
-                    });
+                return Ok(new{token = token,redirectUrl = "/dashboard"});
         }
 
         [HttpPost]

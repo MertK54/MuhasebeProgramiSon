@@ -102,8 +102,8 @@ export default {
 </script>
 <style>
 .vs__dropdown-toggle {
-  background-color: white!important; /* Seçeneklerin arka plan rengini beyaz yap */
-  color: black!important; /* Seçeneklerin metin rengini siyah yap */
+  background-color: white!important;
+  color: black!important;
   width: 100%;
 }
 </style>

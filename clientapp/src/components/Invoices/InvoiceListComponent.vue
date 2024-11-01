@@ -2,10 +2,12 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th class="p-3">Product Name</th>
-                <th>Invoice Id</th>
+                <th class="p-3">Invoice Id</th>
+                <th>Product Name</th>
                 <th>Supplier</th>
                 <th>Customer</th>
+                <th>Payment</th>
+                <th>Statu</th>
                 <th>Type</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
@@ -14,10 +16,12 @@
         </thead>
         <tbody>
             <tr v-for="(invoice, index) in invoices" :key="index">
-                <td class="p-3">{{ invoice.product_name }}</td>
-                <td>{{ invoice.invoice_id }}</td>
+                <td class="p-3">{{ invoice.invoice_id }}</td>
+                <td>{{ invoice.product_name }}</td>
                 <td>{{ invoice.supplier_name }}</td>
                 <td>{{ invoice.customer_name }}</td>
+                <td>{{ invoice.payment_method }}</td>
+                <td>{{ invoice.invoice_statu }}</td>
                 <td>{{ invoice.invoice_type }}</td>
                 <td>{{ invoice.quantity }}</td>
                 <td>{{ invoice.unit_price }}</td>

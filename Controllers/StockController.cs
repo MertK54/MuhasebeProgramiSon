@@ -32,7 +32,6 @@ namespace MuhasebeProgrami.Controllers
                 }
             }
             return Ok(new{token=token});
-
         }
         [HttpGet()]
         [Route("stock-get")]
@@ -48,16 +47,15 @@ namespace MuhasebeProgrami.Controllers
                     {
                         while(reader.Read())
                         {
-                            var get_stock = new GetStocks() 
+                             stockList.Add( new GetStocks() 
                             {
                                 stock_id = reader["stock_id"].ToString(),
                                 supplier_id = reader["supplier_id"].ToString(),
                                 supplier_name = reader["supplier_name"].ToString(),
                                 product_name = reader["product_name"].ToString(),
-                                quantity = reader.GetInt32(reader.GetOrdinal("quantity")),
-                                unit_price = reader.GetDecimal(reader.GetOrdinal("unit_price")),
-                            };
-                            stockList.Add(get_stock);
+                                quantity = Convert.ToInt32(reader["quantity"]),
+                                unit_price = Convert.ToDecimal(reader["unit_price"]),
+                            });
                         }
                     }
                 }
@@ -65,9 +63,10 @@ namespace MuhasebeProgrami.Controllers
             }
             return Ok(stockList);
         }
+
         [HttpPost()]
         [Route("stock-update-reduce")]
-        public IActionResult StockUpdate( [FromBody] UpdateStock updateStock)
+        public IActionResult StockUpdateReduce( [FromBody] UpdateStock updateStock)
         {
             string token = "";
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
@@ -87,7 +86,7 @@ namespace MuhasebeProgrami.Controllers
                     }
                 }
             }
-                    return Ok(new{token=token});
+            return Ok(new{token=token});
         }
 
         [HttpPost()]
@@ -115,6 +114,31 @@ namespace MuhasebeProgrami.Controllers
                     return Ok(new{token=token});
         }
         
+        [HttpPost()]
+        [Route("stock-update")]
+        public IActionResult StockUpdate( [FromBody] UpdateStock updateStock)
+        {
+            string token = "";
+            using(MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                using(MySqlCommand command = new MySqlCommand("CALL sp_stock_update_add(@stock_id,@quantity,@unit_price)",connection))
+                {
+                    command.Parameters.AddWithValue("@stock_id", updateStock.stock_id);
+                    command.Parameters.AddWithValue("@quantity", updateStock.quantity);
+                    command.Parameters.AddWithValue("@unit_price", updateStock.unit_price);
+                    using(MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            token = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+                    return Ok(new{token=token});
+        }
+
         [HttpDelete()]
         [Route("stock-delete")]
         public IActionResult StockDelete([FromBody] DeleteStock stock_id)

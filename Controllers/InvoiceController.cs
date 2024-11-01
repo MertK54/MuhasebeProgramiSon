@@ -18,7 +18,7 @@ namespace MuhasebeProgrami.Controllers
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using(MySqlCommand command = new MySqlCommand("CALL sp_invoice_create_sale(@supplier_id,@customer_id,@stock_id,@product_name,@quantity,@unit_price,@total_amount,@type)",connection))
+                using(MySqlCommand command = new MySqlCommand("CALL sp_invoice_create_sale(@supplier_id,@customer_id,@stock_id,@product_name,@quantity,@unit_price,@total_amount,@type,@invoice_statu,@payment_method)",connection))
                 {
                     command.Parameters.AddWithValue("supplier_id",createSaleInvoice.supplier_id);
                     command.Parameters.AddWithValue("stock_id",createSaleInvoice.stock_id);
@@ -28,6 +28,8 @@ namespace MuhasebeProgrami.Controllers
                     command.Parameters.AddWithValue("unit_price",createSaleInvoice.unit_price);
                     command.Parameters.AddWithValue("total_amount",createSaleInvoice.total_amount);
                     command.Parameters.AddWithValue("type",createSaleInvoice.invoice_type);
+                    command.Parameters.AddWithValue("invoice_statu",createSaleInvoice.invoice_statu);
+                    command.Parameters.AddWithValue("payment_method",createSaleInvoice.payment_method);
                     using(MySqlDataReader reader = command.ExecuteReader())
                     {   
                         while(reader.Read())
@@ -48,7 +50,7 @@ namespace MuhasebeProgrami.Controllers
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using(MySqlCommand command = new MySqlCommand("CALL sp_invoice_create_purchase(@supplier_id,@customer_id,@stock_id,@product_name,@quantity,@unit_price,@total_amount,@type)",connection))
+                using(MySqlCommand command = new MySqlCommand("CALL sp_invoice_create_purchase(@supplier_id,@customer_id,@stock_id,@product_name,@quantity,@unit_price,@total_amount,@type,@invoice_statu,@payment_method)",connection))
                 {
                     command.Parameters.AddWithValue("supplier_id",createSaleInvoice.supplier_id);
                     command.Parameters.AddWithValue("customer_id",createSaleInvoice.customer_id);
@@ -57,7 +59,8 @@ namespace MuhasebeProgrami.Controllers
                     command.Parameters.AddWithValue("quantity",createSaleInvoice.quantity);
                     command.Parameters.AddWithValue("unit_price",createSaleInvoice.unit_price);
                     command.Parameters.AddWithValue("total_amount",createSaleInvoice.total_amount);
-                    command.Parameters.AddWithValue("type",createSaleInvoice.invoice_type);
+                    command.Parameters.AddWithValue("type",createSaleInvoice.invoice_type);command.Parameters.AddWithValue("invoice_statu",createSaleInvoice.invoice_statu);
+                    command.Parameters.AddWithValue("payment_method",createSaleInvoice.payment_method);
                     using(MySqlDataReader reader = command.ExecuteReader())
                     {   
                         while(reader.Read())
@@ -85,26 +88,29 @@ namespace MuhasebeProgrami.Controllers
                     {
                         while(reader.Read())
                         {
-                            var get_invoice_sale = new GetSaleInvoice()
+                            sale_invoice_list.Add(new GetSaleInvoice()
                             {
                                 invoice_id = reader["invoice_id"].ToString(),
                                 supplier_id = reader["supplier_id"].ToString(),
                                 customer_id = reader["customer_id"].ToString(),
                                 stock_id = reader["stock_id"].ToString(),
+                                supplier_name = reader["supplier_name"].ToString(),
+                                customer_name = reader["customer_name"].ToString(),
                                 product_name = reader["product_name"].ToString(),
-                                quantity = reader.GetInt32(reader.GetOrdinal("quantity")),
-                                unit_price = reader.GetDecimal(reader.GetOrdinal("unit_price")),
-                                total_amount = reader.GetDecimal(reader.GetOrdinal("total_amount")),
-                            };
-                            sale_invoice_list.Add(get_invoice_sale);
-                        }
+                                invoice_statu = reader["invoice_statu"].ToString(),
+                                payment_method = reader["payment_method"].ToString(),
+                                quantity = Convert.ToInt32(reader["quantity"].ToString()),
+                                unit_price = Convert.ToDecimal(reader["unit_price"]),
+                                total_amount = Convert.ToDecimal(reader["total_amount"])
+                            });    
+                        };   
                     }
                 }
                 connection.Close(); 
             }
-            return Ok(sale_invoice_list); 
-
+        return Ok(sale_invoice_list); 
         }
+
         [HttpPost()]
         [Route("sale-return")]
         public IActionResult SaleReturnInvoice( [FromBody] UpdateStock updateStock)
@@ -143,7 +149,7 @@ namespace MuhasebeProgrami.Controllers
                     {
                         while (reader.Read())
                         {
-                            var get_invoice_all = new AllInvoice()
+                            allInvoice.Add(new AllInvoice()
                             {
                                 invoice_id = reader["invoice_id"].ToString(),
                                 customer_id = reader["customer_id"].ToString(),
@@ -152,12 +158,13 @@ namespace MuhasebeProgrami.Controllers
                                 stock_id = reader["stock_id"].ToString(),
                                 supplier_id = reader["supplier_id"].ToString(),
                                 product_name = reader["product_name"].ToString(),
+                                invoice_statu = reader["invoice_statu"].ToString(),
+                                payment_method = reader["payment_method"].ToString(),
                                 invoice_type = reader["type"].ToString(),
-                                quantity = reader.GetInt32(reader.GetOrdinal("quantity")),
-                                unit_price = reader.GetDecimal(reader.GetOrdinal("unit_price")),
-                                total_amount = reader.GetDecimal(reader.GetOrdinal("total_amount")),
-                            };
-                            allInvoice.Add(get_invoice_all);
+                                quantity = Convert.ToInt32(reader["quantity"].ToString()),
+                                unit_price = Convert.ToDecimal(reader["unit_price"]),
+                                total_amount = Convert.ToDecimal(reader["total_amount"])
+                            });
                         }
                     }
                 }
@@ -186,6 +193,30 @@ namespace MuhasebeProgrami.Controllers
                 }
             }
             return Ok( new {token = token});
+        }
+        [HttpPut()]
+        [Route("invoice-update")]
+        public IActionResult UpdateInvoice([FromBody]UpdateInvoice updateInvoice)
+        {
+            string token ="";
+            using(MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                using(MySqlCommand command = new MySqlCommand("CALL sp_invoice_update(@invoice_id,@invoice_status,@payment_method)",connection))
+                {
+                    command.Parameters.AddWithValue("invoice_id",updateInvoice.invoice_id);
+                    command.Parameters.AddWithValue("invoice_status",updateInvoice.invoice_status);
+                    command.Parameters.AddWithValue("payment_method",updateInvoice.payment_method);
+                    using(MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            token = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return Ok(new{token = token});
         }
     }
 }
