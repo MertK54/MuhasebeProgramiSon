@@ -361,3 +361,4 @@ BEGIN
     SELECT procedure_token AS result;
 END //
 DELIMITER ;
+DELIMITER
